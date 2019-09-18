@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Weather</title>
+  </head>
+  <body>
+    {% extends "template.html" %}
+    {% block content %}
+    
+    <h1> Weather in the 5 Boroughs </h1>
+    <p> Checkout the weather across NYC buroughs</p>
+    <p> Data courtesy of DarkSky API</p>
+    <h5>Manhattan</h5>
+    <p>{{ midtown }}</p>
+    <h5>Brooklyn</h5>
+    <p>{{ brooklyn }}</p> 
+    <h5>Queens</h5>
+    <p>{{ queens }}</p>
+    <h5>Staten Island</h5>
+    <p>{{ statenisland }}</p>
+    <h5>Bronx</h5>
+    <p>{{ bronx }}</p>
+    {% endblock %}
+  </body>
+</html

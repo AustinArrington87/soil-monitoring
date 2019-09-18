@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Soil Lookup</title>
+  </head>
+ <body>
+     {% extends "template.html" %}
+    {% block content %}
+     
+     <h3>Location</h3>
+      <table border = 1>
+         {% for key, value in result.items() %}
+            <tr>
+               <th> {{ key }} </th>
+               <td> {{ value }} </td>
+            </tr>
+         {% endfor %}
+      </table>
+     
+     <h3>Farm Overview</h3>
+     
+     <table border = 1>
+     <tr>
+         <th>Farmland</th>
+         <td>{{ farmland }}</td>
+         </tr>
+    <tr>
+        <th>Map Unit</th>
+        <td>{{ mapunit }}</td>
+     </table>
+     
+     <h3>Top Horizon ({{ TopdepthTop }} to {{ TopdepthBottom }} cm)</h3>
+     
+     <table border = 1>
+    <tr>
+        <th>Variable</th>
+        <th>Value</th>
+        <th>Description</th>
+    </tr>
+     <tr>
+         <td><i>Texture</i></td>
+         <td>{{ topTex }}</td>
+         <td>Soil texture class</td>
+    </tr>
+    <tr>
+        <td><i>CaCO</i></td>
+        <td>{{ topCaCo }}</td>
+        <td>Calcium Carbonate</td>
+     </tr>
+     <tr>
+        <td><i>OM</i></td>
+        <td>{{ topOM }}</td>
+        <td>Percent organic matter</td>
+     </tr> 
+    <tr>
+        <td><i>CEC</i></td>
+        <td>{{ topCEC }}</td>
+        <td>Cation Exchange Capacity</td>
+     </tr>
+    <tr>
+        <td><i>EC</i></td>
+        <td>{{ topEC }}</td>
+        <td>Electrical Conductivity</td>
+     </tr>
+    <tr>
+        <td><i>Very Coarse Sand</i></td>
+        <td>{{ topVCoarseSand }}</td>
+        <td>Percent Very Coarse Grained Sand</td>
+     </tr>     
+    <tr>
+        <td><i>Coarse Sand</i></td>
+        <td>{{ topCoarseSand }}</td>
+        <td>Percent Coarse Grained Sand</td>
+     </tr>
+    <tr>
+        <td><i>Medium Sand</i></td>
+        <td>{{ topMedSand }}</td>
+        <td>Percent Medium Grained Sand</td>
+     </tr>     
+    <tr>
+        <td><i>Fine Sand</i></td>
+        <td>{{ topFineSand }}</td>
+        <td>Percent Fine Grained Sand</td>
+     </tr>
+    <tr>
+        <td><i>Very Fine Sand</i></td>
+        <td>{{ topVFineSand }}</td>
+        <td>Percent Very Fine Grained Sand</td>
+     </tr>  
+    <tr>
+        <td><i>Sand</i></td>
+        <td>{{ topSand }}</td>
+        <td>Percent Total Sand</td>
+     </tr>
+    <tr>
+        <td><i>Silt</i></td>
+        <td>{{ topSilt }}</td>
+        <td>Percent Silt</td>
+     </tr>
+    <tr>
+        <td><i>Clay</i></td>
+        <td>{{ topClay }}</td>
+        <td>Percent Clay</td>
+     </tr>
+    <tr>
+        <td><i>pH -  Water</i></td>
+        <td>{{ topPhWater }}</td>
+        <td>Measured in H2O</td>
+     </tr> 
+    <tr>
+        <td><i>pH -  CaCl2</i></td>
+        <td>{{ topPhCaCl2 }}</td>
+        <td>Measured in 0.01 M CaCl2</td>
+     </tr> 
+     </table>
+     
+     <h3>Middle Horizon ({{ TopdepthBottom }} to {{ MiddepthBottom }} cm)</h3>
+     
+     <table border = 1>
+    <tr>
+        <th>Variable</th>
+        <th>Value</th>
+        <th>Description</th>
+    </tr>
+     <tr>
+         <td><i>Texture</i></td>
+         <td>{{ midTex }}</td>
+         <td>Soil texture class</td>
+    </tr>
+    <tr>
+        <td><i>CaCO</i></td>
+        <td>{{ midCaCo }}</td>
+        <td>Calcium Carbonate</td>
+     </tr>
+     <tr>
+        <td><i>OM</i></td>
+        <td>{{ midOM }}</td>
+        <td>Percent organic matter</td>
+     </tr> 
+    <tr>
+        <td><i>CEC</i></td>
+        <td>{{ midCEC }}</td>
+        <td>Cation Exchange Capacity</td>
+     </tr>
+    <tr>
+        <td><i>EC</i></td>
+        <td>{{ midEC }}</td>
+        <td>Electrical Conductivity</td>
+     </tr>
+    <tr>
+        <td><i>Very Coarse Sand</i></td>
+        <td>{{ midVCoarseSand }}</td>
+        <td>Percent Very Coarse Grained Sand</td>
+     </tr>     
+    <tr>
+        <td><i>Coarse Sand</i></td>
+        <td>{{ midCoarseSand }}</td>
+        <td>Percent Coarse Grained Sand</td>
+     </tr>
+    <tr>
+        <td><i>Medium Sand</i></td>
+        <td>{{ midMedSand }}</td>
+        <td>Percent Medium Grained Sand</td>
+     </tr>     
+    <tr>
+        <td><i>Fine Sand</i></td>
+        <td>{{ midFineSand }}</td>
+        <td>Percent Fine Grained Sand</td>
+     </tr>
+    <tr>
+        <td><i>Very Fine Sand</i></td>
+        <td>{{ midVFineSand }}</td>
+        <td>Percent Very Fine Grained Sand</td>
+     </tr>  
+    <tr>
+        <td><i>Sand</i></td>
+        <td>{{ midSand }}</td>
+        <td>Percent Total Sand</td>
+     </tr>
+    <tr>
+        <td><i>Silt</i></td>
+        <td>{{ midSilt }}</td>
+        <td>Percent Silt</td>
+     </tr>
+    <tr>
+        <td><i>Clay</i></td>
+        <td>{{ midClay }}</td>
+        <td>Percent Clay</td>
+     </tr>
+    <tr>
+        <td><i>pH -  Water</i></td>
+        <td>{{ midPhWater }}</td>
+        <td>Measured in H2O</td>
+     </tr> 
+    <tr>
+        <td><i>pH -  CaCl2</i></td>
+        <td>{{ midPhCaCl2 }}</td>
+        <td>Measured in 0.01 M CaCl2</td>
+     </tr> 
+     </table>
+     
+     <h3>Bottom Horizon ({{ BotdepthTop }} to {{ BotdepthBottom }} cm)</h3>
+     
+     <table border = 1>
+    <tr>
+        <th>Variable</th>
+        <th>Value</th>
+        <th>Description</th>
+    </tr>
+     <tr>
+         <td><i>Texture</i></td>
+         <td>{{ botTex }}</td>
+         <td>Soil texture class</td>
+    </tr>
+    <tr>
+        <td><i>CaCO</i></td>
+        <td>{{ botCaCo }}</td>
+        <td>Calcium Carbonate</td>
+     </tr>
+     <tr>
+        <td><i>OM</i></td>
+        <td>{{ botOM }}</td>
+        <td>Percent organic matter</td>
+     </tr> 
+    <tr>
+        <td><i>CEC</i></td>
+        <td>{{ botCEC }}</td>
+        <td>Cation Exchange Capacity</td>
+     </tr>
+    <tr>
+        <td><i>EC</i></td>
+        <td>{{ botEC }}</td>
+        <td>Electrical Conductivity</td>
+     </tr>
+    <tr>
+        <td><i>Very Coarse Sand</i></td>
+        <td>{{ botVCoarseSand }}</td>
+        <td>Percent Very Coarse Grained Sand</td>
+     </tr>     
+    <tr>
+        <td><i>Coarse Sand</i></td>
+        <td>{{ botCoarseSand }}</td>
+        <td>Percent Coarse Grained Sand</td>
+     </tr>
+    <tr>
+        <td><i>Medium Sand</i></td>
+        <td>{{ botMedSand }}</td>
+        <td>Percent Medium Grained Sand</td>
+     </tr>     
+    <tr>
+        <td><i>Fine Sand</i></td>
+        <td>{{ botFineSand }}</td>
+        <td>Percent Fine Grained Sand</td>
+     </tr>
+    <tr>
+        <td><i>Very Fine Sand</i></td>
+        <td>{{ botVFineSand }}</td>
+        <td>Percent Very Fine Grained Sand</td>
+     </tr>  
+    <tr>
+        <td><i>Sand</i></td>
+        <td>{{ botSand }}</td>
+        <td>Percent Total Sand</td>
+     </tr>
+    <tr>
+        <td><i>Silt</i></td>
+        <td>{{ botSilt }}</td>
+        <td>Percent Silt</td>
+     </tr>
+    <tr>
+        <td><i>Clay</i></td>
+        <td>{{ botClay }}</td>
+        <td>Percent Clay</td>
+     </tr>
+    <tr>
+        <td><i>pH -  Water</i></td>
+        <td>{{ botPhWater }}</td>
+        <td>Measured in H2O</td>
+     </tr> 
+    <tr>
+        <td><i>pH -  CaCl2</i></td>
+        <td>{{ botPhCaCl2 }}</td>
+        <td>Measured in 0.01 M CaCl2</td>
+     </tr> 
+     </table>
+     
+     {% endblock %}
+   </body>
+</html
