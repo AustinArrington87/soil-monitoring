@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-from darksky import forecast
 import json
 from datetime import datetime, timezone, timedelta
 import statistics
@@ -166,11 +165,6 @@ def result():
         mapunit = r.json()[0]['properties']['attributes']['muname']
         
         return render_template("result.html", result=result, farmland=farmland, mapunit=mapunit, soilResTop=soilResTop, soilResMid=soilResMid, soilResBot=soilResBot, topTex=topTex, topCaCo=topCaCo, topOM=topOM, topCEC=topCEC, topEC=topEC, topClay=topClay, topSand=topSand, topSilt=topSilt, topPhWater=topPhWater, topPhCaCl2=topPhCaCl2, topCoarseSand=topCoarseSand, topMedSand=topMedSand, topFineSand=topFineSand, topVCoarseSand=topVCoarseSand, topVFineSand=topVFineSand, TopdepthTop=TopdepthTop, TopdepthBottom=TopdepthBottom, midTex=midTex, midCaCo=midCaCo, midOM=midOM, midCEC=midCEC, midEC=midEC, midClay=midClay, midSand=midSand, midSilt=midSilt, midPhWater=midPhWater, midPhCaCl2=midPhCaCl2, midCoarseSand=midCoarseSand, midMedSand=midMedSand, midFineSand=midFineSand, midVCoarseSand=midVCoarseSand, midVFineSand=midVFineSand, MiddepthTop=TopdepthTop, MiddepthBottom=MiddepthBottom, botTex=midTex, botCaCo=midCaCo, botOM=botOM, botCEC=botCEC, botEC=botEC, botClay=botClay, botSand=botSand, botSilt=botSilt, botPhWater=botPhWater, botPhCaCl2=botPhCaCl2, botCoarseSand=botCoarseSand, botMedSand=botMedSand, botFineSand=botFineSand, botVCoarseSand=botVCoarseSand, botVFineSand=botVFineSand, BotdepthTop=BotdepthTop, BotdepthBottom=BotdepthBottom)
-
-@app.route("/weather")
-def weather():
-    return render_template("weather.html",midtown=midtown, 
-    brooklyn=brooklyn, queens=queens, statenisland=statenisland, bronx=bronx)
 
 if __name__ == "__main__":
     app.run(debug=True)
