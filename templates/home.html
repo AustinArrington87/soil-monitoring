@@ -3,12 +3,37 @@
   <head>
     <meta charset="utf-8">
     <title>Soil Monitoring App</title>
+      
+      <script>
+      
+      var x = document.getElementById("demo");
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude; 
+}
+      
+      </script>
+      
   </head>
   <body>
     {% extends "template.html" %}
     {% block content %}
     <h3> Look up info about your soil </h3>
-    <p> To get started enter Lat/Lon coords </p>
+    <p> To get started enter Lat/Lon coords for a site in the U.S.<br><br>
+    Soil data comes from NRCS SSURGO database  via Teralytic REST API. </p>
+
+    <p>Try these coords for example <br><br>
+    Lat: 33.154564 <br>
+    Lon: -96.86614 
+    </p>
+  
       
     <form action = "http://localhost:5000/result" method = "POST">
          <p>Latitude <input type = "text" name = "Latitude" /></p>
@@ -16,6 +41,9 @@
          <p><input type = "submit" value = "submit" /></p>
       </form>
       
+      <p>Learn more about the data <a href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/survey/?cid=nrcs142p2_053627" target="_blank">here</a></p>
+      
     {% endblock %}
+      
   </body>
 </html>
