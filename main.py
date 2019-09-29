@@ -6,10 +6,10 @@ import requests
 
 # Teralytic Soil API 
 token_url = "https://hydra.teralytic.io/oauth2/token"
-client_id = '487o6q7tj7ep9bvdg9ar6h4th0'
-client_secret = '7cebe3dgs8rgfbk0mknlsotvneuih4c29mmb1kf0ugpodih3h3h'
+client_id = 'ENTER_CLIENT_ID'
+client_secret = 'ENTER_CLIENT_SECRET'
 # soil API call
-apiKey = 'arIu2Jgvjc669S40Gzqtq2t6eZtf3nnr1dpX6Ha0'
+apiKey = 'ENTER API KEY'
 #step A, B - single call with client credentials as the basic auth header - will return access_token
 data = {'grant_type': 'client_credentials', 'scope': 'teralytic.admin'}
 access_token_response = requests.post(token_url, data=data, verify=False, allow_redirects=False, auth=(client_id, client_secret))
